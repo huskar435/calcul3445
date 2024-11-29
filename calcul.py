@@ -1,45 +1,51 @@
-s=input()
+user_input=input()
 opertation='Error'
-for i in s: 
+for i in user_input: 
     if i == '+':
         opertation=i
-        s=s.split('+')
+        number_list=user_input.split('+')
     elif i == '-':
         opertation=i
-        s=s.split('-')
+        number_list=user_input.split('-')
     elif i == '*':
         opertation=i
-        s=s.split('*')
+        number_list=user_input.split('*')
     elif i == '/':
         opertation=i
-        s=s.split('/')   
-x=int(s[0])
-y=int(s[1])
-def add(a,b):
-    result=a+b
+        number_list=user_input.split('/')
+
+def add():
+    result=float(number_list[0])
+    for g in range(1,len(number_list)):
+        result+=float(number_list[g])
     print(result)
 
-def subtract(a,b):
-    result=a-b
+def subtract():
+    result=float(number_list[0])
+    for g in range(1,len(number_list)):
+        result-=float(number_list[g])
     print(result)
 
-def multyply(a,b):
-    result=a*b
+def multiply():
+    result=float(number_list[0])
+    for g in range(1,len(number_list)):
+        result*=float(number_list[g])
     print(result)
 
-def devide(a,b):
-    result=a/b
+def devide():
+    result=float(number_list[0])
+    for g in range(1,len(number_list)):
+        result/=float(number_list[g])
     print(result)
 
 match opertation:
     case '+':
-        add(x,y)
+        add()
     case '-':
-        subtract(x,y)
+        subtract()
     case '*':
-        multyply(x,y)
+        multiply()
     case '/':
-        devide(x,y)
+        devide()
     case _:
         print(opertation)
-        
