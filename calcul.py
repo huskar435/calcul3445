@@ -32,6 +32,10 @@ def degree(number_list):
         degree_2 *= float(number_list[g])
     return result ** degree_2
 
+def factorial(number_list):
+    result = float(number_list[0])
+
+
 user_input = input("Введите выражение: ")
 operation = 'Error'
 number_list = []
@@ -57,6 +61,11 @@ for i in user_input:
         operation = i
         number_list = user_input.split('^')
         break
+    elif i == '!':
+        operation = i
+        number_list = user_input.split('!')
+        break
+
 
 if operation == '+':
     print(add(number_list))
@@ -68,5 +77,9 @@ elif operation == '/':
     print(divide(number_list))
 elif operation == '^':
     print(degree(number_list))
+elif operation == '!':
+    print(factorial(number_list))
 else:
     print("Error")
+    
+
