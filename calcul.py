@@ -1,51 +1,59 @@
-user_input=input()
-opertation='Error'
-for i in user_input: 
+
+import re
+
+def add(number_list):
+    result = float(number_list[0])
+    for g in range(1, len(number_list)):
+        result += float(number_list[g])
+    return result
+
+def subtract(number_list):
+    result = float(number_list[0])
+    for g in range(1, len(number_list)):
+        result -= float(number_list[g])
+    return result
+
+def multiply(number_list):
+    result = float(number_list[0])
+    for g in range(1, len(number_list)):
+        result *= float(number_list[g])
+    return result
+
+def divide(number_list):
+    result = float(number_list[0])
+    for g in range(1, len(number_list)):
+        result /= float(number_list[g])
+    return result
+
+user_input = input("Введите выражение: ")
+operation = 'Error'
+number_list = []
+
+for i in user_input:
     if i == '+':
-        opertation=i
-        number_list=user_input.split('+')
+        operation = i
+        number_list = user_input.split('+')
+        break
     elif i == '-':
-        opertation=i
-        number_list=user_input.split('-')
+        operation = i
+        number_list = user_input.split('-')
+        break
     elif i == '*':
-        opertation=i
-        number_list=user_input.split('*')
+        operation = i
+        number_list = user_input.split('*')
+        break
     elif i == '/':
-        opertation=i
-        number_list=user_input.split('/')
+        operation = i
+        number_list = user_input.split('/')
+        break
 
-def add():
-    result=float(number_list[0])
-    for g in range(1,len(number_list)):
-        result+=float(number_list[g])
-    print(result)
-
-def subtract():
-    result=float(number_list[0])
-    for g in range(1,len(number_list)):
-        result-=float(number_list[g])
-    print(result)
-
-def multiply():
-    result=float(number_list[0])
-    for g in range(1,len(number_list)):
-        result*=float(number_list[g])
-    print(result)
-
-def devide():
-    result=float(number_list[0])
-    for g in range(1,len(number_list)):
-        result/=float(number_list[g])
-    print(result)
-
-match opertation:
-    case '+':
-        add()
-    case '-':
-        subtract()
-    case '*':
-        multiply()
-    case '/':
-        devide()
-    case _:
-        print(opertation)
+if operation == '+':
+    print(add(number_list))
+elif operation == '-':
+    print(subtract(number_list))
+elif operation == '*':
+    print(multiply(number_list))
+elif operation == '/':
+    print(divide(number_list))
+else:
+    print("Error")
